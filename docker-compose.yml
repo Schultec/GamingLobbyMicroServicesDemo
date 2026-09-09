@@ -11,6 +11,48 @@ services:
       - redis_data:/data
     restart: always
 
+  gateway:
+    build: ./services/gateway
+    container_name: gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_HOST=my-redis-service
+      - REDIS_PORT=6379
+    depends_on:
+      - my-redis-service
+    volumes:
+      - ./services/gateway:/app
+    restart: always
+
+  lobby:
+    build: ./services/lobby
+    container_name: lobby
+    ports:
+      - "8001:8001"
+    environment:
+      - REDIS_HOST=my-redis-service
+      - REDIS_PORT=6379
+    depends_on:
+      - my-redis-service
+    volumes:
+      - ./services/lobby:/app
+    restart: always
+
+  matchmaker:
+    build: ./services/matchmaker
+    container_name: matchmaker
+    ports:
+      - "8002:8002"
+    environment:
+      - REDIS_HOST=my-redis-service
+      - REDIS_PORT=6379
+    depends_on:
+      - my-redis-service
+    volumes:
+      - ./services/matchmaker:/app
+    restart: always
+
 
 volumes:
   redis_data:
