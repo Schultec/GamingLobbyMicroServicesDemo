@@ -13,7 +13,7 @@ from crud import (
     LobbyNotFoundError,
     create_lobby_batch
 )
-from services.lobby.redis.redis_client import redis_client
+from services.lobby.redis_client import redis_client
 from models_api import (
     LobbyCreateRequest,
     LobbyJoinRequest,

@@ -1,6 +1,6 @@
 from uuid import uuid4
 from datetime import datetime
-from redis.redis_client import redis_client
+from services.lobby.redis_client import redis_client
 from models_store import LobbyRecord, PlayerState
 from models_api import LobbyStatus
 import dataclasses

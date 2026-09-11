@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from uuid import uuid4
-from redis.redis_client import redis_client
+from services.matchmaker.redis_client import redis_client
 
 from crud import (
     join_queue,

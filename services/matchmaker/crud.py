@@ -1,8 +1,5 @@
-from uuid import uuid4
 from datetime import datetime
-from redis.redis_client import redis_client
-from models_store import QueueEntry, MatchRecord
-import dataclasses
+from services.matchmaker.redis_client import redis_client
 import httpx
 
 
