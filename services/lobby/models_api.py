@@ -26,6 +26,10 @@ class LobbyResponse(BaseModel):
     max_players: int
     player_count: int
 
+class LobbyBatchCreateRequest(BaseModel):
+    player_ids: list[str]
+    max_players: int
+
 class PlayerResponse(BaseModel):
     player_id: str
     ready: bool

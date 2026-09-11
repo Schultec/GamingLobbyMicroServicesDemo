@@ -11,15 +11,16 @@ from crud import (
     get_players,
     NotFoundError,
     LobbyNotFoundError,
+    create_lobby_batch
 )
-from redis_client import redis_client
+from services.lobby.redis.redis_client import redis_client
 from models_api import (
     LobbyCreateRequest,
     LobbyJoinRequest,
     ReadyRequest,
     LobbyResponse,
     PlayerResponse,
-    LobbyStatus
+    LobbyStatus, LobbyBatchCreateRequest
 )
 from models_store import LobbyRecord, PlayerState
 
@@ -80,6 +81,12 @@ async def get_players_route(lobby_id: str) -> list[PlayerResponse]:
 async def set_ready_route(lobby_id: str, body: ReadyRequest) -> LobbyResponse:
     await set_ready(lobby_id, body.player_id, body.ready)
     record = await get_lobby(lobby_id)
+    response = await _record_to_response(record, lobby_id)
+    return response
+
+@app.post("/lobbies/batch", response_model=LobbyResponse)
+async def create_lobby_batch_route(body: LobbyBatchCreateRequest) -> LobbyResponse:
+    lobby_id, record = await create_lobby_batch(body.player_ids, body.max_players)
     response = await _record_to_response(record, lobby_id)
     return response
 

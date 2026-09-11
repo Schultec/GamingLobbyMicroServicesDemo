@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40579dbf-ca1c-4ade-84c8-01584823a11d" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/services/gateway/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/gateway/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/Redis/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/Redis/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/crud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/models_api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/models_store.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/lobby/redis_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/matchmaker/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/matchmaker/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/matchmaker/requirements.txt" afterDir="false" />
+    <list default="true" id="40579dbf-ca1c-4ade-84c8-01584823a11d" name="Changes" comment="add lobbies service and scaffold for other services.">
+      <change afterPath="$PROJECT_DIR$/services/matchmaker/crud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/matchmaker/models_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/matchmaker/models_store.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/matchmaker/redis/redis_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile.disabled" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/gateway/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/gateway/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/lobby/Redis/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/services/lobby/redis/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/lobby/Redis/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/services/lobby/redis/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/lobby/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/lobby/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/lobby/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/lobby/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/lobby/models_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/lobby/models_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/lobby/redis_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/lobby/redis/redis_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/matchmaker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/services/matchmaker/redis/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/matchmaker/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/matchmaker/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/matchmaker/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/services/matchmaker/redis/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,8 +80,9 @@
       <recent name="C:\Users\schul\PycharmProjects\GameLobbyMicroservicesProject\services\gateway" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\schul\PycharmProjects\GameLobbyMicroservicesProject\services\lobby" />
       <recent name="C:\Users\schul\PycharmProjects\GameLobbyMicroservicesProject\services\lobby\Redis" />
+      <recent name="C:\Users\schul\PycharmProjects\GameLobbyMicroservicesProject\services\matchmaker\redis" />
+      <recent name="C:\Users\schul\PycharmProjects\GameLobbyMicroservicesProject\services\lobby" />
     </key>
   </component>
   <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
@@ -143,11 +144,20 @@
       <option name="project" value="LOCAL" />
       <updated>1788898254833</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add lobbies service and scaffold for other services.">
+      <option name="closed" value="true" />
+      <created>1788970923674</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1788970923674</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="add lobbies service and scaffold for other services." />
+    <option name="LAST_COMMIT_MESSAGE" value="add lobbies service and scaffold for other services." />
   </component>
 </project>

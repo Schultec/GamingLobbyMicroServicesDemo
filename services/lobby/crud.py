@@ -1,8 +1,8 @@
 from uuid import uuid4
 from datetime import datetime
-from redis_client import redis_client
+from redis.redis_client import redis_client
 from models_store import LobbyRecord, PlayerState
-from models_api import LobbyStatus, LobbyResponse
+from models_api import LobbyStatus
 import dataclasses
 
 # exceptions
@@ -10,7 +10,7 @@ class NotFoundError(Exception): pass
 class LobbyNotFoundError(NotFoundError): pass
 class PlayerNotFoundError(NotFoundError): pass
 
-# crud
+# Crud
 async def create_lobby(host_id: str, max_players: int) -> tuple[str, LobbyRecord]:
     lobby_id = str(uuid4())
     record = LobbyRecord(host_id,LobbyStatus.OPEN.value, max_players, datetime.now())
@@ -80,7 +80,17 @@ async def leave_lobby(lobby_id: str, player_id: str) -> None:
     updated_dict = _lobby_record_to_redis_dict(lobby)
     await redis_client.hset(f"lobby:{lobby_id}", mapping=updated_dict)
 
-
+async def create_lobby_batch(player_ids: list[str], max_players: int) -> tuple[str, LobbyRecord]:
+    host_id = player_ids[0]
+    lobby_id = str(uuid4())
+    record = LobbyRecord(host_id,LobbyStatus.OPEN.value, max_players, datetime.now())
+    record_dict = _lobby_record_to_redis_dict(record)
+    await redis_client.hset(f"lobby:{lobby_id}", mapping=record_dict)
+    await join_lobby(lobby_id, host_id)
+    await redis_client.sadd("lobbies:open", lobby_id)
+    for player_id in player_ids[1:]:
+        await join_lobby(lobby_id, player_id)
+    return lobby_id, record
 
 
 # helpers

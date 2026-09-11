@@ -22,4 +22,4 @@ async def health():
 
 
 # TODO: proxy client requests to lobby/matchmaker over the internal network,
-# and/or fan out WebSocket events sourced from Redis pub/sub.
+# and/or fan out WebSocket events sourced from redis pub/sub.
